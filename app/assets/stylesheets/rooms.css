@@ -1,0 +1,222 @@
+#legend {
+    position: absolute;
+    left: 400px;
+    top: 100px;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+}
+
+.legendlabel {
+    margin: 5px;
+}
+
+.legendblock {
+    padding: 5px;
+    width: 100%;
+    height: 20%;
+}
+
+.NameLink {
+    text-decoration: none;
+}
+
+.RoomFill {
+    width: 65px;
+    height: 122px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    display: table;
+    table-layout: fixed;
+}
+
+.RoomText {
+    vertical-align: middle;
+    overflow: hidden;
+    display: table-cell;
+}
+
+
+#r3126 {
+    left: 1472px;
+    top: 599px;
+    width: 82px;
+    height: 93px;
+}
+
+#r3125 {
+    left: 1472px;
+    top: 503px;
+    width: 82px;
+    height: 91px;
+}
+
+
+#r3111 {
+    left: 1278px;
+    top: 503px;
+    width: 67px;
+}
+
+#r3110 {
+    left: 1278px;
+    top: 665px;
+}
+
+#r3107 {
+    left: 1208px;
+    top: 503px;
+}
+
+#r3106 {
+    left: 1208px;
+    top: 665px;
+}
+
+#r3103 {
+    left: 1138px;
+    top: 503px;
+}
+
+#r3099 {
+    left: 1068px;
+    top: 503px;
+}
+
+#r3095 {
+    left: 998px;
+    top: 503px;
+}
+
+#r3094 {
+    left: 998px;
+    top: 665px;
+}
+
+#r3091 {
+    left: 926px;
+    top: 503px;
+    width: 67px;
+}
+
+#r3090 {
+    left: 928px;
+    top: 665px;
+}
+
+#r3086 {
+    left: 858px;
+    top: 665px;
+}
+
+
+#r3074 {
+    left: 648px;
+    top: 665px;
+}
+
+#r3071 {
+    left: 578px;
+    top: 503px;
+    width: 67px;
+}
+
+#r3070 {
+    left: 578px;
+    top: 665px;
+}
+
+#r3067 {
+    left: 508px;
+    top: 503px;
+}
+
+#r3066 {
+    left: 508px;
+    top: 665px;
+}
+
+#r3063 {
+    left: 438px;
+    top: 503px;
+    width: 66px;
+}
+
+#r3059 {
+    left: 368px;
+    top: 503px;
+}
+
+#r3055 {
+    left: 298px;
+    top: 503px;
+}
+
+#r3054 {
+    left: 298px;
+    top: 665px;
+}
+
+#r3051 {
+    left: 227px;
+    top: 503px;
+    width: 66px;
+}
+
+#r3050 {
+    left: 227px;
+    top: 665px;
+    width: 66px;
+}
+
+
+#r3038 {
+    left: 18px;
+    top: 697px;
+    width: 83px;
+    height: 90px;
+}
+
+#r3034 {
+    left: 18px;
+    top: 600px;
+    width: 83px;
+    height: 90px;
+}
+
+#r3024 {
+    left: 18px;
+    top: 405px;
+    width: 82px;
+    height: 89px;
+}
+
+#r3020 {
+    left: 18px;
+    top: 308px;
+    width: 82px;
+    height: 92px;
+}
+
+#r3016 {
+    left: 18px;
+    top: 208px;
+    width: 82px;
+    height: 95px;
+}
+
+#r3013 {
+    left: 140px;
+    top: 113px;
+    width: 83px;
+    height: 93px;
+}
+
+#r3009 {
+    left: 140px;
+    top: 18px;
+    width: 83px;
+    height: 91px;
+}

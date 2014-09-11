@@ -1,0 +1,7 @@
+<h1>Your Status</h1>
+<% unless @illness %>
+  <p>Click <%= link_to 'here', new_illness_path %> if you are sick.</p>
+<% else %>
+  <p>You have been sick since <%= @illness.start %>. Click <%= link_to 'here', controller: "illnesses", action: "endillness", id: @illness %>
+  if you are no longer sick.</p>
+<% end %>

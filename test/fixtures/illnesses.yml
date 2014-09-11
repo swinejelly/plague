@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  start: 2014-09-08
+  end: 2014-09-08
+  congestion: false
+  fever: false
+  headache: false
+  shits: false
+
+two:
+  user: MyString
+  start: 2014-09-08
+  end: 2014-09-08
+  congestion: false
+  fever: false
+  headache: false
+  shits: false
