@@ -17,15 +17,26 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="#">Plague</a>
+  <%= link_to 'Plague', '/', :class => "navbar-brand" %>
 </div>
 <div class="navbar-collapse collapse">
   <ul class="nav navbar-nav">
-    <li><a href="#">Map</a></li>
+    <li><%= link_to 'Map', '/' %></li>
     <li><%= link_to 'Status', illnesses_path %></li>
     <li><a href="#">Stats</a></li>
     <li><a href="#">Admin</a></li>
   </ul>
+  <% unless Rails.application.config.use_webauth %>
+  <%= form_tag({controller: "auth", action: "change"}, method: "post", class: "navbar-form navbar-right") %>
+    <span class="badge" id="username">
+      <%= session[:username] %>
+    </span>
+    <div class="form-group">
+      <input type="text" name="newusername" class="form-control" placeholder="Change username">
+    </div>
+    <button type="submit" class="btn btn-inverse">Submit</button>
+  </form>
+  <% end %>
 </div>
 </div>
 </div>

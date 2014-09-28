@@ -4,7 +4,8 @@ class IllnessesController < ApplicationController
   # GET /illnesses
   # GET /illnesses.json
   def index
-    @illness = Illness.find_by user: 'scott', end: nil
+    @illnesses = Illness.where user: session[:username]
+    @illness = @illnesses.find do |i| i.end.nil? end 
   end
 
   # GET /illnesses/1
@@ -25,6 +26,7 @@ class IllnessesController < ApplicationController
   # POST /illnesses.json
   def create
     @illness = Illness.new(illness_params)
+    @illness.user = session[:username]
 
     respond_to do |format|
       if @illness.save
@@ -72,6 +74,6 @@ class IllnessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def illness_params
-      params.require(:illness).permit(:user, :start, :end, :congestion, :fever, :headache, :shits)
+      params.require(:illness).permit(:start, :end, :congestion, :fever, :headache, :shits)
     end
 end

@@ -1,3 +1,7 @@
+#floorplan {
+    margin: 8px;
+}
+
 #legend {
     position: absolute;
     left: 400px;

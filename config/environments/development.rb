@@ -26,4 +26,7 @@ Plague::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  #use session instead of webauth
+  config.use_webauth = false
 end

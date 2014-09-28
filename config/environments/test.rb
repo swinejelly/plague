@@ -33,4 +33,7 @@ Plague::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # use session
+  config.use_webauth = false
 end

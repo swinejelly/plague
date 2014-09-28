@@ -1,5 +1,6 @@
 Plague::Application.routes.draw do
   get "home/index"
+  post "auth/change"
   resources :illnesses, only: [:index, :show, :new, :create, :update] do
     member do 
       get 'endillness'

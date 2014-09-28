@@ -1,5 +1,8 @@
 <div id="plaguemap" style="position: relative;">
-  <img src="https://map-old.csh.rit.edu/floorplan.gif"/>
-  <div id="r3051" class="RoomFill" style="position: absolute; background: rgba(187,255,187,0.8);">
-  </div>
+  <img id="floorplan" src="/assets/floorplan.gif"/>
+  <% @users.select { |u| n = u["roomNumber"].first; n && Integer(n) rescue false }.each do |u| %>
+    <div id="r<%= u["roomNumber"].first %>" class="RoomFill" style="position: absolute; background: rgba(187,255,187,0.8);">
+      <%= u["uid"].first %>
+    </div>
+  <% end %>
 </div>
