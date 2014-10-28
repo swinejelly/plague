@@ -1,0 +1,56 @@
+<div class="col-md-offset-1 col-md-10">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="media">
+        <div class="pull-left" style="width: 126px; height: 126px;">
+          <div class="media-object" style="background: <%= @illness ? "red" : "green" %>; width: 126px; height: 126px;"></div>
+        </div>
+        <div class="media-body">
+          <div class="h4"><%= session[:username] %>
+            <% if @illness %>
+              <small>Sick since <%= @illness.start %></small>
+            <% end %>
+          </div>
+          <% if @illness %>
+            <div class="media">
+              <div class="pull-left">
+                <b class="media-object">Symptoms</b>
+              </div>
+              <div class="media-body">
+                <ul>
+                  <% if @illness.shits %><li>Shits</li><% end %>
+                  <% if @illness.fever %><li>Fever</li><% end %>
+                  <% if @illness.headache %><li>Headache</li><% end %>
+                  <% if @illness.congestion %><li>Congestion</li><% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% if @illness %>
+      <div class="panel-footer" id="endfooter" style="display: none;">
+        <%= form_for(@illness) do |f| %>
+          <div class="field">
+            <%= f.label :end %>
+            <%= f.date_select  :end, :discard_year => true %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+      <div class="panel-footer" id="editfooter" style="display: none;">
+        <%= render 'illness/form' %>
+      </div>
+      <div class="panel-footer">
+        <a id="endlink">End Illness</a> | <a id="editlink">Edit Illness</a>
+      </div>
+    <% else %>
+      <div class="panel-footer">
+        <a id="createlink">Sick?</a>
+      </div>
+    <% end %>
+  </div>
+</div>

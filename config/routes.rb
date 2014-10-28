@@ -1,5 +1,5 @@
 Plague::Application.routes.draw do
-  get "home/index"
+  get "profile" => "profile#index"
   post "auth/change"
   resources :illnesses, only: [:index, :show, :new, :create, :update] do
     member do 
