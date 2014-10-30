@@ -1,26 +1,26 @@
 class IllnessesController < ApplicationController
-  before_action :set_illness, only: [:show, :edit, :update, :destroy, :endillness]
+  before_action :set_illness, only: [:update]
 
-  # GET /illnesses
-  # GET /illnesses.json
-  def index
-    @illnesses = Illness.where user: session[:username]
-    @illness = @illnesses.find do |i| i.end.nil? end 
-  end
+  #  # GET /illnesses
+  #  # GET /illnesses.json
+  #  def index
+  #    @illnesses = Illness.where user: session[:username]
+  #    @illness = @illnesses.find do |i| i.end.nil? end
+  #  end
 
   # GET /illnesses/1
   # GET /illnesses/1.json
-  def show
-  end
+  #  def show
+  #  end
 
   # GET /illnesses/new
-  def new
-    @illness = Illness.new
-  end
+  #  def new
+  #    @illness = Illness.new
+  #  end
 
   # GET /illnesses/1/edit
-  def edit
-  end
+  #  def edit
+  #  end
 
   # POST /illnesses
   # POST /illnesses.json
@@ -29,42 +29,32 @@ class IllnessesController < ApplicationController
     @illness.user = session[:username]
 
     respond_to do |format|
-      if @illness.save
-        format.html { redirect_to @illness, notice: 'Illness was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @illness }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @illness.errors, status: :unprocessable_entity }
-      end
+      @illness.save
+      format.html { (implied_redirect) || (redirect_to @illness, notice: 'Illness was successfully created.') }
     end
   end
 
-  def endillness
-  end
+  #  def endillness
+  #  end
 
   # PATCH/PUT /illnesses/1
   # PATCH/PUT /illnesses/1.json
   def update
     respond_to do |format|
-      if @illness.update(illness_params)
-        format.html { redirect_to @illness, notice: 'Illness was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @illness.errors, status: :unprocessable_entity }
-      end
+      @illness.update(illness_params)
+      format.html { (implied_redirect) || (redirect_to @illness, notice: 'Illness was successfully updated.') }
     end
   end
 
   # DELETE /illnesses/1
   # DELETE /illnesses/1.json
-  def destroy
-    @illness.destroy
-    respond_to do |format|
-      format.html { redirect_to illnesses_url }
-      format.json { head :no_content }
-    end
-  end
+  #  def destroy
+  #    @illness.destroy
+  #    respond_to do |format|
+  #      format.html { (implied_redirect) || (redirect_to illnesses_url) }
+  #      format.json { head :no_content }
+  #    end
+  #  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

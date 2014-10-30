@@ -3,15 +3,19 @@
     <div class="panel-body">
       <div class="media">
         <div class="pull-left" style="width: 126px; height: 126px;">
-          <div class="media-object" style="background: <%= @illness ? "red" : "green" %>; width: 126px; height: 126px;"></div>
+          <div class="media-object" style="background: <%= @sick ? "red" : "green" %>; width: 126px; height: 126px;"></div>
         </div>
         <div class="media-body">
           <div class="h4"><%= session[:username] %>
-            <% if @illness %>
+            <% if @sick %>
               <small>Sick since <%= @illness.start %></small>
+            <% elsif !@past_illnesses.empty? %>
+              <small>Last sick on <%= @past_illnesses.max_by {|i| i.end }.end %></small>
+            <% else %>
+              <small>Never been sick!</small>
             <% end %>
           </div>
-          <% if @illness %>
+          <% if @sick %>
             <div class="media">
               <div class="pull-left">
                 <b class="media-object">Symptoms</b>
@@ -29,28 +33,43 @@
         </div>
       </div>
     </div>
-    <% if @illness %>
+    <% if @sick %>
       <div class="panel-footer" id="endfooter" style="display: none;">
         <%= form_for(@illness) do |f| %>
           <div class="field">
             <%= f.label :end %>
             <%= f.date_select  :end, :discard_year => true %>
           </div>
+          <input type="hidden" name="to" value="/profile">
           <div class="actions">
-            <%= f.submit %>
+            <%= f.submit "End Illness" %>
           </div>
         <% end %>
       </div>
       <div class="panel-footer" id="editfooter" style="display: none;">
-        <%= render 'illness/form' %>
+        <%= render 'illnesses/form', to: "/profile" %>
       </div>
       <div class="panel-footer">
         <a id="endlink">End Illness</a> | <a id="editlink">Edit Illness</a>
       </div>
     <% else %>
+      <div class="panel-footer" id="createfooter" style ="display: none;">
+        <%= render 'illnesses/form', to: "/profile" %>
+      </div>
       <div class="panel-footer">
         <a id="createlink">Sick?</a>
       </div>
     <% end %>
   </div>
+  <% @past_illnesses.each do |i| %>
+    <div class="well">
+      You were sick from <%= i.start %> to <%= i.end %> with the following symptoms.<br>
+      <ul>
+        <% if i.shits %><li>Shits</li><% end %>
+        <% if i.fever %><li>Fever</li><% end %>
+        <% if i.headache %><li>Headache</li><% end %>
+        <% if i.congestion %><li>Congestion</li><% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>

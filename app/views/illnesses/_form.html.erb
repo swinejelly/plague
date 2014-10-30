@@ -43,6 +43,9 @@
     <%= f.label :shits %><br>
     <%= f.check_box :shits %>
   </div>
+  <% if local_assigns[:to] %>
+    <input type="hidden" name="to" value="<%= local_assigns[:to] %>">
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

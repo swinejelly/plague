@@ -31,4 +31,8 @@ class ApplicationController < ActionController::Base
     end
     return true
   end
+
+  def implied_redirect()
+    redirect_to params[:to] if params[:to]
+  end
 end
