@@ -19,7 +19,31 @@
   -->
   <div class="field">
     <%= f.label :start %><br>
-    <%= f.date_select :start, :discard_year => true %>
+    <% if @illness.start.nil?
+         start = (@last_illness ? @last_illness.end : 1.week.ago).strftime('%m-%d-%Y')
+         ending = Date.today.strftime('%m-%d-%Y')
+         default = ending
+    %>
+        <!-- New Illness -->
+        <input type="text" name="start" data-provide="datepicker"
+               data-date-autoclose="true"
+               data-date-format="mm-dd-yyyy"
+               data-date-start-date="<%= start %>"
+               data-date-end-date="<%= ending %>"
+               value="<%= default %>">
+    <% else
+         start = (@last_illness ? @last_illness.end.strftime('%m-%d-%Y') : '')
+         ending = @illness.start.strftime('%m-%d-%Y')
+         default = ending
+    %>
+        <!-- Edit Illness -->
+        <input type="text" name="start" data-provide="datepicker"
+               data-date-autoclose="true"
+               data-date-format="mm-dd-yyyy"
+               data-date-start-date="<%= start %>"
+               data-date-end-date="<%= ending %>"
+               value="<%= default %>">
+    <% end %>
   </div>
   <!--
   <div class="field">

@@ -23,6 +23,7 @@ gem 'autoprefixer-rails'
 
 # Use bootstrap
 gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'bootstrap-datepicker-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

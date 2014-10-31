@@ -26,12 +26,11 @@ class IllnessesController < ApplicationController
   # POST /illnesses.json
   def create
     @illness = Illness.new(illness_params)
+    @illness.start = Date.parse(params.require(:start), '%m-%d-%Y')
     @illness.user = session[:username]
 
-    respond_to do |format|
-      @illness.save
-      format.html { (implied_redirect) || (redirect_to @illness, notice: 'Illness was successfully created.') }
-    end
+    @illness.save
+    implied_redirect
   end
 
   #  def endillness
@@ -40,10 +39,11 @@ class IllnessesController < ApplicationController
   # PATCH/PUT /illnesses/1
   # PATCH/PUT /illnesses/1.json
   def update
-    respond_to do |format|
-      @illness.update(illness_params)
-      format.html { (implied_redirect) || (redirect_to @illness, notice: 'Illness was successfully updated.') }
-    end
+    p = params.permit(:start, :end)
+    @illness.end   = Date.strptime(p[:end], '%m-%d-%Y')   if p[:end]
+    @illness.start = Date.strptime(p[:start], '%m-%d-%Y') if p[:start]
+    @illness.save
+    implied_redirect
   end
 
   # DELETE /illnesses/1
@@ -64,6 +64,6 @@ class IllnessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def illness_params
-      params.require(:illness).permit(:start, :end, :congestion, :fever, :headache, :shits)
+      params.require(:illness).permit(:congestion, :fever, :headache, :shits)
     end
 end

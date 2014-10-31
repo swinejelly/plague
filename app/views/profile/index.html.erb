@@ -7,10 +7,15 @@
         </div>
         <div class="media-body">
           <div class="h4"><%= session[:username] %>
+            <% if !@past_illnesses.empty?
+                 @last_illness = @past_illnesses.max_by {|i| i.end }
+               else
+                 @last_illness = nil
+               end %>
             <% if @sick %>
               <small>Sick since <%= @illness.start %></small>
-            <% elsif !@past_illnesses.empty? %>
-              <small>Last sick on <%= @past_illnesses.max_by {|i| i.end }.end %></small>
+            <% elsif @last_illness %>
+              <small>Last sick on <%= @last_illness.end %></small>
             <% else %>
               <small>Never been sick!</small>
             <% end %>
@@ -38,7 +43,12 @@
         <%= form_for(@illness) do |f| %>
           <div class="field">
             <%= f.label :end %>
-            <%= f.date_select  :end, :discard_year => true %>
+            <input type="text" name="end" data-provide="datepicker"
+              data-date-autoclose="true"
+              data-date-format="mm-dd-yyyy"
+              data-date-start-date="<%= @illness.start.strftime('%m-%d-%Y') %>"
+              data-date-end-date="<%= Date.today.strftime('%m-%d-%Y') %>"
+              value="<%= Date.today.strftime('%m-%d-%Y') %>">
           </div>
           <input type="hidden" name="to" value="/profile">
           <div class="actions">
