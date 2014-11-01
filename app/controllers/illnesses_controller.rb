@@ -26,7 +26,6 @@ class IllnessesController < ApplicationController
   # POST /illnesses.json
   def create
     @illness = Illness.new(illness_params)
-    @illness.start = Date.parse(params.require(:start), '%m-%d-%Y')
     @illness.user = session[:username]
 
     @illness.save
@@ -39,6 +38,9 @@ class IllnessesController < ApplicationController
   # PATCH/PUT /illnesses/1
   # PATCH/PUT /illnesses/1.json
   def update
+    if params[:illness]
+      @illness.update(illness_params)
+    end
     p = params.permit(:start, :end)
     @illness.end   = Date.strptime(p[:end], '%m-%d-%Y')   if p[:end]
     @illness.start = Date.strptime(p[:start], '%m-%d-%Y') if p[:start]
