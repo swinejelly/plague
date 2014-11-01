@@ -39,6 +39,9 @@ class IllnessesController < ApplicationController
   # PATCH/PUT /illnesses/1
   # PATCH/PUT /illnesses/1.json
   def update
+    if params[:illness]
+      @illness.update(illness_params)
+    end
     p = params.permit(:start, :end)
     @illness.end   = Date.strptime(p[:end], '%m-%d-%Y')   if p[:end]
     @illness.start = Date.strptime(p[:start], '%m-%d-%Y') if p[:start]
