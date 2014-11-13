@@ -1,3 +1,14 @@
+<img id="floorplan" src="/assets/floorplan_clean.png" style="display: none;"/>
+<canvas id="heatmap" width="1200" height="671"></canvas>
+<div style="display: none;">
+  <% @green_rooms.each do |r| %>
+      <span class="roomentry" id="<%= r[0] %>">rgba(0,60,0,0.5):<%= r[1][0]['uid'].first %><% if r[1][1] %>:<%= r[1][1]['uid'].first %><% end %></span>
+  <% end %>
+  <% @red_rooms.each do |r| %>
+      <span class="roomentry" id="<%= r[0] %>">rgba(60,0,0,0.5):<%= r[1][0]['uid'].first %><% if r[1][1] %>:<%= r[1][1]['uid'].first %><% end %></span>
+  <% end %>
+</div>
+<!--
 <div id="plaguemap" style="position: relative;">
   <img id="floorplan" src="/assets/floorplan.gif"/>
   <% @users.select { |u| n = u["roomNumber"].first; n && Integer(n) rescue false }.each do |u| %>
@@ -6,3 +17,4 @@
     </div>
   <% end %>
 </div>
+-->
