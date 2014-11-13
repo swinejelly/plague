@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909000139) do
+ActiveRecord::Schema.define(version: 20141113035959) do
 
   create_table "illnesses", force: true do |t|
     t.string   "user"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20140909000139) do
     t.boolean  "shits"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "musclepains"
+    t.boolean  "vomiting"
+    t.boolean  "migraine"
+    t.boolean  "fatigue"
+    t.boolean  "cramps"
+    t.boolean  "nausea"
+    t.boolean  "chills"
+    t.boolean  "noappetite"
   end
 
 end

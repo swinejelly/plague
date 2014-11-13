@@ -26,12 +26,7 @@
                 <b class="media-object">Symptoms</b>
               </div>
               <div class="media-body">
-                <ul>
-                  <% if @illness.shits %><li>Shits</li><% end %>
-                  <% if @illness.fever %><li>Fever</li><% end %>
-                  <% if @illness.headache %><li>Headache</li><% end %>
-                  <% if @illness.congestion %><li>Congestion</li><% end %>
-                </ul>
+                <%= render 'illnesses/symptoms', illness: @illness %>
               </div>
             </div>
           <% end %>
@@ -74,12 +69,7 @@
   <% @past_illnesses.each do |i| %>
     <div class="well">
       You were sick from <%= i.start %> to <%= i.end %> with the following symptoms.<br>
-      <ul>
-        <% if i.shits %><li>Shits</li><% end %>
-        <% if i.fever %><li>Fever</li><% end %>
-        <% if i.headache %><li>Headache</li><% end %>
-        <% if i.congestion %><li>Congestion</li><% end %>
-      </ul>
+      <%= render 'illnesses/symptoms', illness: i %>
     </div>
   <% end %>
 </div>

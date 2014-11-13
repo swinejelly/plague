@@ -51,6 +51,8 @@
     <%= f.date_select :end %>
   </div>
   -->
+  <!-- Column 1 -->
+  <div class="symptomcolumn">
   <div class="field">
     <%= f.label :congestion %><br>
     <%= f.check_box :congestion %>
@@ -66,6 +68,45 @@
   <div class="field">
     <%= f.label :shits %><br>
     <%= f.check_box :shits %>
+  </div>
+  </div>
+  <!-- Column 2 -->
+  <div class="symptomcolumn">
+  <div class="field">
+    <%= f.label :musclepains %><br>
+    <%= f.check_box :musclepains %>
+  </div>
+  <div class="field">
+    <%= f.label :vomiting %><br>
+    <%= f.check_box :vomiting %>
+  </div>
+  <div class="field">
+    <%= f.label :migraine %><br>
+    <%= f.check_box :migraine %>
+  </div>
+  <div class="field">
+    <%= f.label :fatigue %><br>
+    <%= f.check_box :fatigue %>
+  </div>
+  </div>
+  <!-- Column 3 -->
+  <div class="symptomcolumn symptomcolumnlast">
+  <div class="field">
+    <%= f.label :cramps %><br>
+    <%= f.check_box :cramps %>
+  </div>
+  <div class="field">
+    <%= f.label :nausea %><br>
+    <%= f.check_box :nausea %>
+  </div>
+  <div class="field">
+    <%= f.label :chills %><br>
+    <%= f.check_box :chills %>
+  </div>
+  <div class="field">
+    <%= f.label :noappetite %><br>
+    <%= f.check_box :noappetite %>
+  </div>
   </div>
   <% if local_assigns[:to] %>
     <input type="hidden" name="to" value="<%= local_assigns[:to] %>">

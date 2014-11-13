@@ -1,0 +1,23 @@
+<!-- Depends on some illness being passed in -->
+<!-- Columned version for tablets and up -->
+<% illness = local_assigns[:illness]
+   active_symptoms = Illness::SYMPTOMS.select {|s| illness.send s }
+   cols = active_symptoms.each_slice(4)
+
+   cols.each_with_index do |c, i|
+     last_col = i == cols.size - 1
+%>
+    <div class="symptomcolumn hidden-xs <%= last_col ? 'symptomcolumnlast' : '' %>">
+      <ul>
+        <% c.each do |s| %>
+          <li><%= Illness.hname(s) %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<!-- Stacked version for tiny devices -->
+<ul class="visible-xs">
+<% active_symptoms.each do |s| %>
+  <li><%= Illness.hname(s) %></li>
+<% end %>
+</ul>
