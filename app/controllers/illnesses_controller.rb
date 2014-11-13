@@ -26,6 +26,7 @@ class IllnessesController < ApplicationController
   # POST /illnesses.json
   def create
     @illness = Illness.new(illness_params)
+    @illness.start = Date.strptime(params.require(:start), '%m-%d-%Y')
     @illness.user = session[:username]
 
     @illness.save
